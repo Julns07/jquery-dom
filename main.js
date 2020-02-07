@@ -1,0 +1,23 @@
+$(document).ready(function() {
+  $(".accord-container").hide()
+  $("h4.accordLink").click(function() {
+    var thisBlock = $(this)
+      .parent()
+      .index(".accord-block")
+    $(".accord-block:not(:nth-child(" + (thisBlock + 1) + "))")
+      .find(".active")
+      .removeClass("active")
+    $(this)
+      .toggleClass("active")
+      .next()
+      .slideToggle("fast")
+    $(this)
+      .parent()
+      .toggleClass("activeToggle")
+      .siblings()
+      .removeClass("activeToggle")
+      .children(".accord-container")
+      .hide("fast")
+    return false
+  })
+})
